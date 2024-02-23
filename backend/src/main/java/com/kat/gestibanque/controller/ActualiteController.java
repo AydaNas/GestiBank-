@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
 import com.kat.gestibanque.entities.Actualite;
 import com.kat.gestibanque.entities.Apropos;
+import com.kat.gestibanque.entities.Banque;
 import com.kat.gestibanque.services.ActualiteService;
 
 @RequestMapping("/actualite")
@@ -51,4 +53,11 @@ public class ActualiteController {
 	public Actualite getActualite(@PathVariable int id) {
 		return actualiteService.getActualite(id);
 	}
+	
+	 @GetMapping("/search")
+	    public List<Actualite>searchActualite(@RequestParam String titre) {
+	        return actualiteService.searchActualite(titre);
+	    }
+
+	
 }
